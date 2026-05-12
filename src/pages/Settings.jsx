@@ -25,20 +25,20 @@ function Settings() {
   const [confirmPin, setConfirmPin] = useState("");
 
   useEffect(() => {
-    fetch("${BASE_URL}/hero/content")
+    fetch(`${BASE_URL}/hero/content`)
       .then((res) => res.json())
       .then((data) => setHeroContent(data));
   }, []);
 
   useEffect(() => {
-    fetch("${BASE_URL}/hero/images")
+    fetch(`${BASE_URL}/hero/images`)
       .then((res) => res.json())
       .then((data) => setHeroImages(data));
   }, []);
 
   const handleSaveHeroContent = async () => {
     try {
-      const response = await fetch("${BASE_URL}/hero/content", {
+      const response = await fetch(`${BASE_URL}/hero/content`, {
         method: "PUT",
 
         headers: {
@@ -68,7 +68,7 @@ function Settings() {
     formData.append("image", heroFile);
 
     try {
-      const response = await fetch("${BASE_URL}/hero/images", {
+      const response = await fetch(`${BASE_URL}/hero/images`, {
         method: "POST",
 
         headers: {
@@ -83,7 +83,7 @@ function Settings() {
       console.log(data);
 
       // refresh
-      fetch("${BASE_URL}/hero/images")
+      fetch(`${BASE_URL}/hero/images`)
         .then((res) => res.json())
         .then((data) => setHeroImages(data));
 
