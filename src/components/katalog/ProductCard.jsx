@@ -1,5 +1,6 @@
 import { Pencil, Trash2 } from "lucide-react";
 import { formatRupiah } from "../../utils/formatRupiah";
+import { BASE_URL } from "../../services/api";
 
 function ProductCard({ item, navigate, isAdmin, setEditProduct, handleDelete }) {
   return (
@@ -18,7 +19,7 @@ function ProductCard({ item, navigate, isAdmin, setEditProduct, handleDelete }) 
       ">
       <div className="overflow-hidden mb-6">
         <img
-          src={item.image ? `http://localhost:3000/uploads/${item.image}` : "/no-image.png"}
+          src={item.image ? `${BASE_URL}/uploads/${item.image}` : "/no-image.png"}
           alt={item.nama}
           className="
             w-full

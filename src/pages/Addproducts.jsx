@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Upload, X } from "lucide-react";
-
+import { BASE_URL } from "../services/api";
 function Admin() {
   const [form, setForm] = useState({
     nama: "",
@@ -74,7 +74,7 @@ function Admin() {
         formData.append("images", images[i]);
       }
 
-      await axios.post("http://localhost:3000/products", formData);
+      await axios.post(`${BASE_URL}/products`, formData);
 
       alert("Produk berhasil ditambahkan 🚀");
 

@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-
 /* ================= API ================= */
-import { getProducts } from "../services/api";
+import { getProducts, BASE_URL } from "../services/api";
 
 /* ================= COMPONENTS ================= */
 import ProductCard from "../components/katalog/ProductCard";
@@ -171,7 +170,7 @@ function Katalog() {
         }
       }
 
-      const response = await fetch(`http://localhost:3000/products/${editProduct.id}`, {
+      const response = await fetch(`${BASE_URL}/products/${editProduct.id}`, {
         method: "PUT",
 
         headers: {
@@ -199,7 +198,7 @@ function Katalog() {
     if (!confirmDelete) return;
 
     try {
-      await fetch(`http://localhost:3000/products/${id}`, {
+      await fetch(`${BASE_URL}/products/${id}`, {
         method: "DELETE",
       });
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import { getProductById, BASE_URL } from "../services/api";
 function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -8,12 +8,11 @@ function ProductDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProduct(data);
-        setActiveImg(data.images[0]);
-      });
+    getProductById(id).then((data) => {
+      setProduct(data);
+
+      setActiveImg(data.images[0]);
+    });
   }, [id]);
   const formatRupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -33,13 +32,13 @@ function ProductDetail() {
       <div>
         {/* IMAGE BESAR */}
         <div className="border border-gray-200 p-5 bg-white">
-          <img src={`http://localhost:3000/uploads/${activeImg}`} alt={product.nama} className="w-full h-[500px] object-contain" />
+          <img src={`${BASE_URL}/uploads/${activeImg}`} alt={product.nama} className="w-full h-[500px] object-contain" />
         </div>
 
         {/* THUMBNAIL */}
         <div className="grid grid-cols-3 gap-4 mt-4">
           {images.map((img, i) => (
-            <img key={i} src={`http://localhost:3000/uploads/${img}`} onClick={() => setActiveImg(img)} className={`cursor-pointer border p-2 ${activeImg === img ? "border-[#8B2C3A]" : "border-gray-200"}`} />
+            <img key={i} src={`${BASE_URL}/uploads/${img}`} onClick={() => setActiveImg(img)} className={`cursor-pointer border p-2 ${activeImg === img ? "border-[#8B2C3A]" : "border-gray-200"}`} />
           ))}
         </div>
       </div>

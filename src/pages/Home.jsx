@@ -3,6 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import {
+  getHeroImages,
+  getHeroContent,
+  BASE_URL,
+} from "../services/api";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,15 +19,17 @@ function Home() {
   const [heroContent, setHeroContent] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3000/hero/images")
-      .then((res) => res.json())
-      .then((data) => setHeroImages(data));
+  getHeroImages()
+    .then((data) => {
+      setHeroImages(data);
+    });
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/hero/content")
-      .then((res) => res.json())
-      .then((data) => setHeroContent(data));
+  getHeroContent()
+    .then((data) => {
+      setHeroContent(data);
+    });
   }, []);
 
   const navigate = useNavigate();
@@ -55,7 +62,7 @@ function Home() {
               <SwiperSlide key={index}>
                 <div className="relative h-[85vh]">
                   {/* IMAGE */}
-                  <img src={`http://localhost:3000/uploads/${img.image_url}`} alt="Jewelry" className="w-full h-full object-cover" />
+                  <img src={`${BASE_URL}/uploads/${img.image_url}`} alt="Jewelry" className="w-full h-full object-cover" />
 
                   {/* OVERLAY */}
                   <div className="absolute inset-0 bg-black/35" />

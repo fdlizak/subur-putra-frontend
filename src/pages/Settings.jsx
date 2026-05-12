@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Trash2, Plus, ImagePlus } from "lucide-react";
 import { LogOut } from "lucide-react";
-
+import { BASE_URL } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 import { getAdminPin, setAdminPin } from "../utils/adminAuth";
@@ -25,20 +25,20 @@ function Settings() {
   const [confirmPin, setConfirmPin] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/hero/content")
+    fetch("${BASE_URL}/hero/content")
       .then((res) => res.json())
       .then((data) => setHeroContent(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/hero/images")
+    fetch("${BASE_URL}/hero/images")
       .then((res) => res.json())
       .then((data) => setHeroImages(data));
   }, []);
 
   const handleSaveHeroContent = async () => {
     try {
-      const response = await fetch("http://localhost:3000/hero/content", {
+      const response = await fetch("${BASE_URL}/hero/content", {
         method: "PUT",
 
         headers: {
@@ -68,7 +68,7 @@ function Settings() {
     formData.append("image", heroFile);
 
     try {
-      const response = await fetch("http://localhost:3000/hero/images", {
+      const response = await fetch("${BASE_URL}/hero/images", {
         method: "POST",
 
         headers: {
@@ -83,7 +83,7 @@ function Settings() {
       console.log(data);
 
       // refresh
-      fetch("http://localhost:3000/hero/images")
+      fetch("${BASE_URL}/hero/images")
         .then((res) => res.json())
         .then((data) => setHeroImages(data));
 
@@ -95,7 +95,7 @@ function Settings() {
 
   const handleDeleteHero = async (id) => {
     try {
-      await fetch(`http://localhost:3000/hero/images/${id}`, {
+      await fetch(`${BASE_URL}/hero/images/${id}`, {
         method: "DELETE",
 
         headers: {
@@ -558,7 +558,7 @@ function Settings() {
                 shadow-sm
               ">
                 <img
-                  src={`http://localhost:3000/uploads/${item.image_url}`}
+                  src={`${BASE_URL}/uploads/${item.image_url}`}
                   alt=""
                   className="
                   w-full
