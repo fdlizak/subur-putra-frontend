@@ -27,13 +27,21 @@ function Settings() {
   useEffect(() => {
     fetch(`${BASE_URL}/hero/content`)
       .then((res) => res.json())
-      .then((data) => setHeroContent(data));
+      .then((data) => {
+        if (data) {
+          setHeroContent(data);
+        }
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     fetch(`${BASE_URL}/hero/images`)
       .then((res) => res.json())
-      .then((data) => setHeroImages(data));
+      .then((data) => {
+        setHeroImages(Array.isArray(data) ? data : []);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const handleSaveHeroContent = async () => {
@@ -172,7 +180,7 @@ function Settings() {
           </h1>
         </div>
 
-                {/* ACCOUNT */}
+        {/* ACCOUNT */}
 
         <div
           className="
