@@ -3,11 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import {
-  getHeroImages,
-  getHeroContent,
-  BASE_URL,
-} from "../services/api";
+import { getHeroImages, getHeroContent, BASE_URL } from "../services/api";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -19,15 +15,13 @@ function Home() {
   const [heroContent, setHeroContent] = useState({});
 
   useEffect(() => {
-  getHeroImages()
-    .then((data) => {
+    getHeroImages().then((data) => {
       setHeroImages(data);
     });
   }, []);
 
   useEffect(() => {
-  getHeroContent()
-    .then((data) => {
+    getHeroContent().then((data) => {
       setHeroContent(data);
     });
   }, []);
@@ -68,15 +62,70 @@ function Home() {
                   <div className="absolute inset-0 bg-black/35" />
 
                   {/* CONTENT */}
-                  <div className="absolute inset-0 flex items-center justify-center text-center px-6">
-                    <div className="text-white max-w-2xl">
-                      <p className="tracking-[4px] text-sm mb-4">{heroContent.subtitle}</p>
+                  <div className="absolute inset-0 flex items-center justify-center px-6">
+                    <div className="max-w-4xl text-center">
+                      {/* SUBTITLE */}
+                      <p
+                        className="
+        text-[#f3e9df]
+        tracking-[8px]
+        uppercase
+        text-xs
+        md:text-sm
+        mb-6
+        font-light
+      ">
+                        {heroContent.subtitle}
+                      </p>
 
-                      <h1 className="text-3xl md:text-5xl font-semibold leading-tight mb-5">{heroContent.title}</h1>
+                      {/* TITLE */}
+                      <h1
+                        className="
+        text-white
+        text-4xl
+        md:text-7xl
+        leading-[1.1]
+        font-semibold
+        mb-8
+        drop-shadow-lg
+      ">
+                        {heroContent.title}
+                      </h1>
 
-                      <p className="text-sm md:text-base text-gray-200 mb-6">{heroContent.description}</p>
+                      {/* DESCRIPTION */}
+                      <p
+                        className="
+        text-[#f5f5f5]
+        text-sm
+        md:text-xl
+        leading-[1.9]
+        max-w-3xl
+        mx-auto
+        mb-10
+        font-light
+      ">
+                        {heroContent.description}
+                      </p>
 
-                      <button className="border border-white px-6 py-3 text-sm tracking-[2px] hover:bg-white hover:text-black transition-all duration-300">{heroContent.button_text}</button>
+                      {/* BUTTON */}
+                      <button
+                        className="
+        border
+        border-white/80
+        text-white
+        px-10
+        py-4
+        tracking-[4px]
+        uppercase
+        text-sm
+        backdrop-blur-sm
+        hover:bg-white
+        hover:text-[#6b2d35]
+        transition-all
+        duration-500
+      ">
+                        {heroContent.button_text}
+                      </button>
                     </div>
                   </div>
                 </div>
