@@ -31,7 +31,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[85vh] overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <Swiper
           modules={[Autoplay, Pagination, EffectFade, Navigation]}
           observer={true}
