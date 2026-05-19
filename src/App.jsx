@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "@fontsource/cormorant-garamond";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Katalog from "./pages/Products";
