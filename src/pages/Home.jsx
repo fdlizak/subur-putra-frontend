@@ -3,7 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { getHeroImages, getHeroContent, BASE_URL } from "../services/api";
+import {
+  getHeroImages,
+  getHeroContent,
+  BASE_URL,
+} from "../services/api";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,13 +19,15 @@ function Home() {
   const [heroContent, setHeroContent] = useState({});
 
   useEffect(() => {
-    getHeroImages().then((data) => {
+  getHeroImages()
+    .then((data) => {
       setHeroImages(data);
     });
   }, []);
 
   useEffect(() => {
-    getHeroContent().then((data) => {
+  getHeroContent()
+    .then((data) => {
       setHeroContent(data);
     });
   }, []);
@@ -31,7 +37,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-[85vh] overflow-hidden">
         <Swiper
           modules={[Autoplay, Pagination, EffectFade, Navigation]}
           observer={true}
@@ -56,93 +62,23 @@ function Home() {
               <SwiperSlide key={index}>
                 <div className="relative h-[85vh]">
                   {/* IMAGE */}
-<img
-  src={`${BASE_URL}/uploads/${img.image_url}`}
-  alt="Jewelry"
-  className="w-full h-full object-cover object-center"
-/>
+                  <img src={`${BASE_URL}/uploads/${img.image_url}`} alt="Jewelry" className="w-full h-full object-cover" />
+
                   {/* OVERLAY */}
-                  {/* <div className="absolute inset-0 bg-black/35" /> */}
+                  <div className="absolute inset-0 bg-black/35" />
 
-{/* CONTENT */}
-<div className="absolute inset-0 z-10">
+                  {/* CONTENT */}
+                  <div className="absolute inset-0 flex items-center justify-center text-center px-6">
+                    <div className="text-white max-w-2xl">
+                      <p className="tracking-[4px] text-sm mb-4">{heroContent.subtitle}</p>
 
-  <div
-    className="
-      absolute
-      top-[51%]
-      left-1/2
-      -translate-x-1/2
-      -translate-y-1/2
-      w-full
-      flex
-      flex-col
-      items-center
-    ">
+                      <h1 className="text-3xl md:text-5xl font-semibold leading-tight mb-5">{heroContent.title}</h1>
 
-    {/* SUBTITLE */}
-    <p
-      className="
-        text-[#7a3b45]
-        uppercase
-        tracking-[12px]
-        text-[11px]
-        mb-5
-      ">
-      {heroContent.subtitle}
-    </p>
+                      <p className="text-sm md:text-base text-gray-200 mb-6">{heroContent.description}</p>
 
-    {/* TITLE */}
-    <h1
-      style={{
-        fontFamily: "Cormorant Garamond, serif",
-        fontWeight: 300,
-      }}
-      className="
-        text-[#6e2f39]
-        text-[72px]
-        leading-[0.95]
-        text-center
-        max-w-[900px]
-      ">
-      {heroContent.title}
-    </h1>
-
-    {/* DESCRIPTION */}
-    <p
-      className="
-        mt-10
-        text-[#5e5e5e]
-        text-[15px]
-        leading-[2]
-        text-center
-        max-w-[700px]
-      ">
-      {heroContent.description}
-    </p>
-
-    {/* BUTTON */}
-    <button
-      className="
-        mt-10
-        border
-        border-[#7a3b45]
-        text-[#7a3b45]
-        px-14
-        py-4
-        tracking-[4px]
-        text-[12px]
-        uppercase
-        hover:bg-[#7a3b45]
-        hover:text-white
-        transition-all
-        duration-500
-      ">
-      {heroContent.button_text}
-    </button>
-
-  </div>
-</div>
+                      <button className="border border-white px-6 py-3 text-sm tracking-[2px] hover:bg-white hover:text-black transition-all duration-300">{heroContent.button_text}</button>
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
