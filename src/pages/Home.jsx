@@ -61,80 +61,86 @@ function Home() {
                   {/* OVERLAY */}
                   {/* <div className="absolute inset-0 bg-black/35" /> */}
 
-                  {/* CONTENT */}
-                  <div className="absolute inset-0 flex items-center justify-center px-6">
-                    <div
-                      className="
-      text-center
+             {/* CONTENT */}
+<div className="absolute inset-0">
+
+  <div
+    className="
+      absolute
+      top-[47%]
+      left-1/2
+      -translate-x-1/2
+      -translate-y-1/2
       w-full
-      max-w-[900px]
-      mx-auto
-      -mt-10
+      max-w-[760px]
+      text-center
+      px-6
     ">
-                      {/* SUBTITLE */}
-                      <p
-                        className="
+
+    {/* SUBTITLE */}
+    <p
+      className="
         text-[#7d3b45]
         uppercase
         tracking-[10px]
         text-[11px]
-        mb-5
+        mb-6
         font-light
       ">
-                        {heroContent.subtitle}
-                      </p>
+      {heroContent.subtitle}
+    </p>
 
-                      {/* TITLE */}
-                      <h1
-                        className="
+    {/* TITLE */}
+    <h1
+      className="
         text-[#6f2f39]
-        text-[58px]
-        leading-[1.05]
+        text-[54px]
+        leading-[1.08]
         font-light
-        max-w-[820px]
-        mx-auto
-        mb-7
+        tracking-[-1px]
+        mb-6
       "
-                        style={{
-                          fontFamily: "Cormorant Garamond, serif",
-                        }}>
-                        {heroContent.title}
-                      </h1>
+      style={{
+        fontFamily: "Cormorant Garamond, serif",
+      }}>
+      {heroContent.title}
+    </h1>
 
-                      {/* DESCRIPTION */}
-                      <p
-                        className="
-        text-[#5e5e5e]
+    {/* DESCRIPTION */}
+    <p
+      className="
+        text-[#5d5d5d]
         text-[14px]
-        leading-[2]
-        max-w-[620px]
+        leading-[1.9]
+        max-w-[560px]
         mx-auto
         mb-10
         font-light
       ">
-                        {heroContent.description}
-                      </p>
+      {heroContent.description}
+    </p>
 
-                      {/* BUTTON */}
-                      <button
-                        className="
+    {/* BUTTON */}
+    <button
+      className="
         border
         border-[#7d3b45]
         text-[#7d3b45]
         px-12
-        py-4
+        py-[14px]
         tracking-[4px]
         uppercase
-        text-[13px]
+        text-[12px]
         hover:bg-[#7d3b45]
         hover:text-white
         transition-all
         duration-500
       ">
-                        {heroContent.button_text}
-                      </button>
-                    </div>
-                  </div>
+      {heroContent.button_text}
+    </button>
+
+  </div>
+</div>
                 </div>
               </SwiperSlide>
             ))}
