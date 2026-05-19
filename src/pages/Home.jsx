@@ -83,7 +83,7 @@ function Home() {
                         className="
         text-[#6f2f39]
         text-3xl
-        md:text-[72px]
+        md:text-[64px]
         font-light
         leading-[1.05]
         mb-7
