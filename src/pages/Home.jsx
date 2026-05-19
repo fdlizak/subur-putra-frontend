@@ -83,7 +83,7 @@ function Home() {
                         className="
         text-[#6f2f39]
         text-3xl
-        md:text-[64px]
+        md:text-[52px]
         font-light
         leading-[1.05]
         mb-7
@@ -96,18 +96,18 @@ function Home() {
 
                       {/* DESCRIPTION */}
                       <p
-                        className="
-        text-[#5f5f5f]
-        text-xs
-        md:text-[15px]
-        leading-8
-        max-w-xl
-        mx-auto
-        mb-8
-        font-light
-      ">
-                        {heroContent.description}
-                      </p>
+  className="
+    text-[#5f5f5f]
+    text-xs
+    md:text-[14px]
+    leading-7
+    max-w-lg
+    mx-auto
+    mb-8
+    font-light
+  ">
+  {heroContent.description}
+</p>
 
                       {/* BUTTON */}
                       <button
