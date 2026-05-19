@@ -63,7 +63,14 @@ function Home() {
 
                   {/* CONTENT */}
                   <div className="absolute inset-0 flex items-center justify-center px-6">
-                    <div className="text-center max-w-3xl">
+                    <div
+                      className="
+      text-center
+      w-full
+      max-w-[900px]
+      mx-auto
+      -mt-10
+    ">
                       {/* SUBTITLE */}
                       <p
                         className="
@@ -71,7 +78,6 @@ function Home() {
         uppercase
         tracking-[10px]
         text-[11px]
-        md:text-xs
         mb-5
         font-light
       ">
@@ -82,10 +88,11 @@ function Home() {
                       <h1
                         className="
         text-[#6f2f39]
-        text-3xl
-        md:text-[52px]
-        font-light
+        text-[58px]
         leading-[1.05]
+        font-light
+        max-w-[820px]
+        mx-auto
         mb-7
       "
                         style={{
@@ -96,18 +103,17 @@ function Home() {
 
                       {/* DESCRIPTION */}
                       <p
-  className="
-    text-[#5f5f5f]
-    text-xs
-    md:text-[14px]
-    leading-7
-    max-w-lg
-    mx-auto
-    mb-8
-    font-light
-  ">
-  {heroContent.description}
-</p>
+                        className="
+        text-[#5e5e5e]
+        text-[14px]
+        leading-[2]
+        max-w-[620px]
+        mx-auto
+        mb-10
+        font-light
+      ">
+                        {heroContent.description}
+                      </p>
 
                       {/* BUTTON */}
                       <button
@@ -115,11 +121,11 @@ function Home() {
         border
         border-[#7d3b45]
         text-[#7d3b45]
-        px-10
-        py-3
+        px-12
+        py-4
         tracking-[4px]
         uppercase
-        text-xs
+        text-[13px]
         hover:bg-[#7d3b45]
         hover:text-white
         transition-all
