@@ -3,11 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import {
-  getHeroImages,
-  getHeroContent,
-  BASE_URL,
-} from "../services/api";
+import { getHeroImages, getHeroContent, BASE_URL } from "../services/api";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -19,15 +15,13 @@ function Home() {
   const [heroContent, setHeroContent] = useState({});
 
   useEffect(() => {
-  getHeroImages()
-    .then((data) => {
+    getHeroImages().then((data) => {
       setHeroImages(data);
     });
   }, []);
 
   useEffect(() => {
-  getHeroContent()
-    .then((data) => {
+    getHeroContent().then((data) => {
       setHeroContent(data);
     });
   }, []);
@@ -67,75 +61,74 @@ function Home() {
                   {/* OVERLAY */}
                   {/* <div className="absolute inset-0 bg-black/35" /> */}
 
-{/* CONTENT */}
-<div className="absolute inset-0 flex items-center justify-center px-6">
-  <div className="text-center max-w-4xl">
-
-    {/* SUBTITLE */}
-    <p
-      className="
+                  {/* CONTENT */}
+                  <div className="absolute inset-0 flex items-center justify-center px-6">
+                    <div className="text-center max-w-3xl">
+                      {/* SUBTITLE */}
+                      <p
+                        className="
         text-[#7d3b45]
         uppercase
         tracking-[10px]
-        text-xs
-        md:text-sm
-        mb-6
+        text-[11px]
+        md:text-xs
+        mb-5
         font-light
       ">
-      {heroContent.subtitle}
-    </p>
+                        {heroContent.subtitle}
+                      </p>
 
-    {/* TITLE */}
-    <h1
-      className="
+                      {/* TITLE */}
+                      <h1
+                        className="
         text-[#6f2f39]
-        text-4xl
-        md:text-6xl
+        text-3xl
+        md:text-[72px]
         font-light
-        leading-[1.25]
-        mb-8
+        leading-[1.05]
+        mb-7
       "
-      style={{
-        fontFamily: "Cormorant Garamond, serif",
-      }}>
-      {heroContent.title}
-    </h1>
+                        style={{
+                          fontFamily: "Cormorant Garamond, serif",
+                        }}>
+                        {heroContent.title}
+                      </h1>
 
-    {/* DESCRIPTION */}
-    <p
-      className="
+                      {/* DESCRIPTION */}
+                      <p
+                        className="
         text-[#5f5f5f]
-        text-sm
-        md:text-lg
+        text-xs
+        md:text-[15px]
         leading-8
-        max-w-2xl
+        max-w-xl
         mx-auto
-        mb-10
+        mb-8
         font-light
       ">
-      {heroContent.description}
-    </p>
+                        {heroContent.description}
+                      </p>
 
-    {/* BUTTON */}
-    <button
-      className="
+                      {/* BUTTON */}
+                      <button
+                        className="
         border
         border-[#7d3b45]
         text-[#7d3b45]
-        px-12
-        py-4
+        px-10
+        py-3
         tracking-[4px]
         uppercase
-        text-sm
+        text-xs
         hover:bg-[#7d3b45]
         hover:text-white
         transition-all
         duration-500
       ">
-      {heroContent.button_text}
-    </button>
-  </div>
-</div>
+                        {heroContent.button_text}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
