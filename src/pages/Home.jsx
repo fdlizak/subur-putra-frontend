@@ -56,66 +56,67 @@ function Home() {
               <SwiperSlide key={index}>
                 <div className="relative h-[85vh]">
                   {/* IMAGE */}
-                  <img src={`${BASE_URL}/uploads/${img.image_url}`} alt="Jewelry" className="w-full h-full object-cover" />
-
+<img
+  src={`${BASE_URL}/uploads/${img.image_url}`}
+  alt="Jewelry"
+  className="w-full h-full object-cover object-center"
+/>
                   {/* OVERLAY */}
                   {/* <div className="absolute inset-0 bg-black/35" /> */}
 
-             {/* CONTENT */}
-<div className="absolute inset-0">
+{/* CONTENT */}
+<div className="absolute inset-0 z-10">
 
   <div
     className="
       absolute
-      top-[47%]
+      top-[51%]
       left-1/2
       -translate-x-1/2
       -translate-y-1/2
       w-full
-      max-w-[760px]
-      text-center
-      px-6
+      flex
+      flex-col
+      items-center
     ">
 
     {/* SUBTITLE */}
     <p
       className="
-        text-[#7d3b45]
+        text-[#7a3b45]
         uppercase
-        tracking-[10px]
+        tracking-[12px]
         text-[11px]
-        mb-6
-        font-light
+        mb-5
       ">
       {heroContent.subtitle}
     </p>
 
     {/* TITLE */}
     <h1
-      className="
-        text-[#6f2f39]
-        text-[54px]
-        leading-[1.08]
-        font-light
-        tracking-[-1px]
-        mb-6
-      "
       style={{
         fontFamily: "Cormorant Garamond, serif",
-      }}>
+        fontWeight: 300,
+      }}
+      className="
+        text-[#6e2f39]
+        text-[72px]
+        leading-[0.95]
+        text-center
+        max-w-[900px]
+      ">
       {heroContent.title}
     </h1>
 
     {/* DESCRIPTION */}
     <p
       className="
-        text-[#5d5d5d]
-        text-[14px]
-        leading-[1.9]
-        max-w-[560px]
-        mx-auto
-        mb-10
-        font-light
+        mt-10
+        text-[#5e5e5e]
+        text-[15px]
+        leading-[2]
+        text-center
+        max-w-[700px]
       ">
       {heroContent.description}
     </p>
@@ -123,15 +124,16 @@ function Home() {
     {/* BUTTON */}
     <button
       className="
+        mt-10
         border
-        border-[#7d3b45]
-        text-[#7d3b45]
-        px-12
-        py-[14px]
+        border-[#7a3b45]
+        text-[#7a3b45]
+        px-14
+        py-4
         tracking-[4px]
-        uppercase
         text-[12px]
-        hover:bg-[#7d3b45]
+        uppercase
+        hover:bg-[#7a3b45]
         hover:text-white
         transition-all
         duration-500
