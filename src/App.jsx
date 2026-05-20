@@ -10,6 +10,7 @@ import Addproducts from "./pages/Addproducts";
 import AdminAccess from "./pages/AdminAccess";
 import Settings from "./pages/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           }
         />
       </Routes>
+        <Footer />
     </BrowserRouter>
   );
 }
