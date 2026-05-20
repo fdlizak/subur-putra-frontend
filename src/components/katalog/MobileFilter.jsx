@@ -175,7 +175,7 @@ function MobileFilter({
 
             {openSection === "kategori" && (
               <div className="pb-3">
-                {["gelang", "anting", "cincin", "kalung", "liontin"].map((item) => (
+                {["Gelang", "Anting", "Cincin", "Kalung", "Liontin"].map((item) => (
                   <div
                     key={item}
                     className="

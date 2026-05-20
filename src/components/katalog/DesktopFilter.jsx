@@ -134,11 +134,11 @@ function DesktopFilter({
                 "
               >
                 {[
-                  "gelang",
-                  "anting",
-                  "cincin",
-                  "kalung",
-                  "liontin",
+                  "Gelang",
+                  "Anting",
+                  "Cincin",
+                  "Kalung",
+                  "Liontin",
                 ].map((item) => (
                   <label
                     key={item}
