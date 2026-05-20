@@ -4,8 +4,7 @@ import logo from "../assets/Subur Putra.png";
 function Footer() {
   const location = useLocation();
 
-  const isAdmin =
-    sessionStorage.getItem("adminToken") === "suburputra-admin";
+  const isAdmin = sessionStorage.getItem("adminToken") === "suburputra-admin";
 
   const isDashboard = location.pathname === "/admin-sp";
 
@@ -17,28 +16,17 @@ function Footer() {
   return (
     <footer className="bg-[#faf7f3] border-t border-[#e7ddd2] mt-auto">
       <div className="px-5 md:px-16 py-14">
-
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-
           {/* BRAND */}
           <div>
-            <img
-              src={logo}
-              alt="Subur Putra"
-              className="h-10 object-contain mb-5"
-            />
+            <img src={logo} alt="Subur Putra" className="h-10 object-contain mb-5" />
 
-            <p className="text-[#666] leading-7 text-sm">
-              Koleksi perhiasan premium dengan desain elegan dan modern
-              untuk melengkapi setiap momen istimewa Anda.
-            </p>
+            <p className="text-[#666] leading-7 text-sm">Koleksi perhiasan dengan desain elegan dan modern untuk melengkapi setiap momen istimewa Anda.</p>
           </div>
 
           {/* MENU */}
           <div>
-            <h3 className="text-[#7d3b45] tracking-[3px] text-sm mb-5">
-              MENU
-            </h3>
+            <h3 className="text-[#7d3b45] tracking-[3px] text-sm mb-5">MENU</h3>
 
             <ul className="space-y-3 text-[#666] text-sm">
               <li>
@@ -57,38 +45,39 @@ function Footer() {
 
           {/* KATEGORI */}
           <div>
-            <h3 className="text-[#7d3b45] tracking-[3px] text-sm mb-5">
-              KATEGORI
-            </h3>
+            <h3 className="text-[#7d3b45] tracking-[3px] text-sm mb-5">KATEGORI</h3>
 
             <ul className="space-y-3 text-[#666] text-sm">
-              <li>Cincin</li>
-              <li>Kalung</li>
-              <li>Gelang</li>
-              <li>Anting</li>
+              {["Cincin", "Kalung", "Gelang", "Anting"].map((item) => (
+                <li key={item}>
+                  <Link
+                    to={`/products?kategori=${item}`}
+                    className="
+          hover:text-[#7d3b45]
+          transition-colors
+          duration-300
+        ">
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* KONTAK */}
           <div>
-            <h3 className="text-[#7d3b45] tracking-[3px] text-sm mb-5">
-              KONTAK
-            </h3>
+            <h3 className="text-[#7d3b45] tracking-[3px] text-sm mb-5">KONTAK</h3>
 
             <ul className="space-y-3 text-[#666] text-sm">
-              <li>Bandung, Indonesia</li>
-              <li>+62 812 3456 7890</li>
-              <li>suburputra@email.com</li>
+              <li>Cijenuk, Bandung Barat</li>
+              {/* <li>+62 812 3456 7890</li> */}
+              {/* <li>suburputra@email.com</li> */}
             </ul>
           </div>
-
         </div>
 
         {/* BOTTOM */}
-        <div className="border-t border-[#e7ddd2] mt-12 pt-6 text-center text-[#888] text-sm">
-          © 2026 Subur Putra. All Rights Reserved.
-        </div>
-
+        <div className="border-t border-[#e7ddd2] mt-12 pt-6 text-center text-[#888] text-sm">© 2026 Subur Putra. All Rights Reserved.</div>
       </div>
     </footer>
   );
