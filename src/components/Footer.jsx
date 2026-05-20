@@ -16,9 +16,9 @@ function Footer() {
 
   return (
     <footer className="bg-[#faf7f3] border-t border-[#e7ddd2] mt-auto">
-      <div className="max-w-7xl mx-auto px-6 py-14">
+      <div className="px-5 md:px-16 py-14">
 
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 
           {/* BRAND */}
           <div>
